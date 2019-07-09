@@ -5,6 +5,7 @@ dotenv.config({ path: path.resolve(__dirname, ".env") });
 import { adjectives, nouns } from "./word";
 import nodemailer from "nodemailer";
 import sendGridTransport from "nodemailer-sendgrid-transport";
+import jwt from "jsonwebtoken";
 
 export const generateSecret = () => {
   const randomNumber = Math.floor(Math.random() * adjectives.length);
@@ -13,7 +14,7 @@ export const generateSecret = () => {
 
 // console.log(process.env.SENDGRID_USERNAME, process.env.SENDGRID_PASSWORD);
 
-export const sendMail = email => {
+const sendMail = email => {
   const options = {
     auth: {
       api_user: process.env.SENDGRID_USERNAME,
@@ -48,3 +49,5 @@ export const sendSecretMail = (adress, secret) => {
   };
   return sendMail(email);
 };
+
+export const generateToken = id => jwt.sign({ id }, process.env.JWT_SECRET);
