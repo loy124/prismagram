@@ -1,16 +1,10 @@
 //깊은관계의 쿼리문을 사용해야할때
-
-export const USER_FRAGMENT = `  
-  fragment UserParts on User{
+export const COMMNET_FRAGMENT = `
+  fragment CommentParts on Comment{
     id
-    username
-    email
-    firstName
-    lastName
-    bio
-  following {
-    
-    caption
+    text
+    user {
+      username
+    }
   }
-  }
-  `;
+`;
