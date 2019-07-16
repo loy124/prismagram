@@ -1,11 +1,9 @@
-type FullPhoto {
-  post: Post!
-  files: [File!]!
-  comments: [Comment!]!
-  likeCount: Int!
-  user: User!
-}
+# type FullPhoto {
+#   post: Post!
+#   files: [File!]!
+#   comments: [Comment!]!
+# }
 
 type Query{
-  seeFullPost(id:String!): FullPhoto!
+  seeFullPost(id:String!): Post!
 }
