@@ -1,5 +1,5 @@
 import { prisma } from "../../../../generated/prisma-client";
-import { COMMNET_FRAGMENT, FULL_POST_FRAGMENT } from "../../../fragments";
+
 
 export default {
   Query: {
@@ -14,7 +14,7 @@ export default {
       // const files = await prisma.post({ id }).files();
       // const user = await prisma.post({ id }).user();
     
-      return prisma.post({ id }).$fragment(FULL_POST_FRAGMENT);
+      return prisma.post({ id });
     }
   }
 };
