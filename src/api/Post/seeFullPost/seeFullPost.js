@@ -13,6 +13,7 @@ export default {
       //   .$fragment(COMMNET_FRAGMENT);
       // const files = await prisma.post({ id }).files();
       // const user = await prisma.post({ id }).user();
+    
       return prisma.post({ id }).$fragment(FULL_POST_FRAGMENT);
     }
   }

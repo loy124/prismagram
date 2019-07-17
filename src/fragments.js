@@ -1,14 +1,14 @@
-//깊은관계의 쿼리문을 사용해야할때
 export const USER_FRAGMENT = `
     id
     username
+    avatar
 `;
 
-export const COMMNET_FRAGMENT = `
+export const COMMENT_FRAGMENT = `
     id
     text
     user {
-      ${USER_FRAGMENT}
+        ${USER_FRAGMENT}
     }
 `;
 
@@ -17,19 +17,42 @@ export const FILE_FRAGMENT = `
     url
 `;
 
-export const FULL_POST_FRAGMENT = `
-  fragment PostParts on Post{
+export const MESSAGE_FRAGMENT = `
     id
-    location
-    caption
-    files {
-      ${FILE_FRAGMENT}
+    text
+    to {
+        ${USER_FRAGMENT}
     }
-    comments {
-      ${COMMNET_FRAGMENT}
+    from {
+        ${USER_FRAGMENT}
     }
-    user {
-      ${USER_FRAGMENT}
+`;
+
+export const FULL_POST_FRAGMENT = `
+    fragment PostParts on Post{
+        id
+        location
+        caption
+        files {
+            ${FILE_FRAGMENT}
+        }
+        comments {
+            ${COMMENT_FRAGMENT}
+        }
+        user {
+            ${USER_FRAGMENT}
+        }
     }
-  }
+`;
+
+export const ROOM_FRAGMENT = `
+    fragment RoomParts on Room {
+        id
+        participants {
+            ${USER_FRAGMENT}
+        }
+        messages { 
+            ${MESSAGE_FRAGMENT}
+        }
+    }
 `;
