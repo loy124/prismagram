@@ -27,9 +27,9 @@ const sendMail = email => {
 
 export const sendSecretMail = (adress, secret) => {
   const email = {
-    from: "loy125@daum.net",
+    from: "dhsdb1541@naver.com",
     to: adress,
-    subject: "🔒 Login Secret for Prismagram 🔒",
+    subject: "🔒 Prismagram의 인증 비밀번호 안내입니다 🔒",
     html: `
     <div style="font-family: 'Apple SD Gothic Neo', 'sans-serif'; width: 540px; height: 350px; border-top: 4px solid rgba(45, 176, 116); border-bottom: 4px solid rgba(45, 176, 116); margin: 100px auto; padding: 30px 0; box-sizing: border-box;">
 	<h1 style="margin: 0; padding: 0 5px; font-size: 28px; font-weight: 400;">

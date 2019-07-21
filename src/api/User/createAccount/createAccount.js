@@ -4,9 +4,16 @@ export default {
   Mutation: {
     createAccount: async (_, args) => {
       const { username, email, firstName = "", lastName = "", bio = "" } = args;
-      const exists = await prisma.$exists.user({ username });
+      const exists = await prisma.$exists.user({
+        OR: [
+          {
+            username
+          },
+          { email }
+        ]
+      });
       if (exists) {
-        throw Error("이미 존재하는 사용자 이름입니다");
+        throw Error("이미 존재하는 사용자/ 메일 입니다");
       }
       await prisma.createUser({
         username,
